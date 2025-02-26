@@ -10,19 +10,24 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_hello_world
-List rcpp_hello_world();
-RcppExport SEXP _LassoReg_rcpp_hello_world() {
+// lasso_cda_cpp
+NumericVector lasso_cda_cpp(NumericMatrix X, NumericVector y, double lambda, int max_iter, double tol);
+RcppExport SEXP _LassoReg_lasso_cda_cpp(SEXP XSEXP, SEXP ySEXP, SEXP lambdaSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world());
+    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< int >::type max_iter(max_iterSEXP);
+    Rcpp::traits::input_parameter< double >::type tol(tolSEXP);
+    rcpp_result_gen = Rcpp::wrap(lasso_cda_cpp(X, y, lambda, max_iter, tol));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_LassoReg_rcpp_hello_world", (DL_FUNC) &_LassoReg_rcpp_hello_world, 0},
+    {"_LassoReg_lasso_cda_cpp", (DL_FUNC) &_LassoReg_lasso_cda_cpp, 5},
     {NULL, NULL, 0}
 };
 

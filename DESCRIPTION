@@ -1,10 +1,16 @@
 Package: LassoReg
-Type: Package
-Title: Concise Summary of What the Package Does
-Version: 1.0
-Date: 2025-02-25
-Authors@R: person("Your", "Name", role = c("aut", "cre"), email = "your@email.com")
-Description: More about what it does (maybe more than one line).
+Title: Lasso Regression Estimation
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Kwan-Young", "Bak",
+      email = "kybak@sungshin.ac.kr",
+      role = c("aut", "cre")
+    )
+  )
+Description: Fitting a lasso regression estimator.
 License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
 Imports: Rcpp (>= 1.0.14)
 LinkingTo: Rcpp

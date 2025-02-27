@@ -52,10 +52,7 @@ intercept_hat = lasso_result$intercept  # 추정된 절편
 y_pred = X %*% beta_hat + intercept_hat
 mse = mean((y - y_pred)^2)
 
-# R-squared 계산
-r_squared = 1 - sum((y - y_pred)^2) / sum((y - mean(y))^2)
-
-# 선택된 변수 평가 (True Positive, False Positive)
+# 변수 선택 평가 (True Positive, False Positive)
 selected_vars = which(beta_hat != 0)
 true_vars = which(beta_true != 0)
 
@@ -79,8 +76,6 @@ cat("\n Intercept:\n", intercept_hat, "\n")
 cat("\n MSE:", mse, "\n")
 #> 
 #>  MSE: 1.007938
-cat("R-squared:", r_squared, "\n")
-#> R-squared: 0.9741673
 cat("TP:", TP, "| FP:", FP, "| FN:", FN, "\n")
 #> TP: 5 | FP: 0 | FN: 0
 ```

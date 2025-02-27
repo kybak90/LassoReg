@@ -1,3 +1,30 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# LassoReg
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of LassoReg is to fit the Lasso regression model to a given set
+of data.
+
+## Installation
+
+You can install the development version of LassoReg from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("kybak90/LassoReg")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(LassoReg)
 set.seed(42)
 
 # 1. 시뮬레이션 설정 ----
@@ -38,8 +65,22 @@ FN = length(setdiff(true_vars, selected_vars))    # 신호가 있는데 선택�
 
 # 5. 결과 출력 ----
 cat("\n True Beta:\n", beta_true, "\n")
+#> 
+#>  True Beta:
+#>  0 0 0 2.979931 2.668319 0 1.876987 0 2.399806 2.778154
 cat("\n Estimated Beta:\n", beta_hat, "\n")
+#> 
+#>  Estimated Beta:
+#>  0 0 0 2.942073 2.633867 0 1.655398 0 2.34827 2.858788
 cat("\n Intercept:\n", intercept_hat, "\n")
+#> 
+#>  Intercept:
+#>  2.026894
 cat("\n MSE:", mse, "\n")
+#> 
+#>  MSE: 1.007938
 cat("R-squared:", r_squared, "\n")
+#> R-squared: 0.9741673
 cat("TP:", TP, "| FP:", FP, "| FN:", FN, "\n")
+#> TP: 5 | FP: 0 | FN: 0
+```

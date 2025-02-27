@@ -1,3 +1,40 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# LassoReg
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of LassoReg is to fit the Lasso regression model to a given set of data.
+
+## Installation
+
+You can install the development version of LassoReg from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("kybak90/LassoReg")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(LassoReg)
 set.seed(42)
 
 # 1. 시뮬레이션 설정 ----
@@ -43,3 +80,4 @@ cat("\n Intercept:\n", intercept_hat, "\n")
 cat("\n MSE:", mse, "\n")
 cat("R-squared:", r_squared, "\n")
 cat("TP:", TP, "| FP:", FP, "| FN:", FN, "\n")
+```

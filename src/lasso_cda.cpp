@@ -1,7 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-// Soft-thresholding 함수
+// [[Rcpp::export]]
 double soft_threshold(double z, double lambda) {
   if (z > lambda) return z - lambda;
   if (z < -lambda) return z + lambda;

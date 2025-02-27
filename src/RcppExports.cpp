@@ -10,6 +10,18 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// soft_threshold
+double soft_threshold(double z, double lambda);
+RcppExport SEXP _LassoReg_soft_threshold(SEXP zSEXP, SEXP lambdaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type z(zSEXP);
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    rcpp_result_gen = Rcpp::wrap(soft_threshold(z, lambda));
+    return rcpp_result_gen;
+END_RCPP
+}
 // lasso_cda_cpp
 NumericVector lasso_cda_cpp(NumericMatrix X, NumericVector y, double lambda, int max_iter, double tol);
 RcppExport SEXP _LassoReg_lasso_cda_cpp(SEXP XSEXP, SEXP ySEXP, SEXP lambdaSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
@@ -27,6 +39,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_LassoReg_soft_threshold", (DL_FUNC) &_LassoReg_soft_threshold, 2},
     {"_LassoReg_lasso_cda_cpp", (DL_FUNC) &_LassoReg_lasso_cda_cpp, 5},
     {NULL, NULL, 0}
 };
